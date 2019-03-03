@@ -36,10 +36,10 @@ which have a tendency to become controversial. We will apply machine learning te
 * Week 3: Team Formation
 * Week 4: Team Project Idea
 * Week 5: Set up project management technologies and GitHub repository
-* Week 6: Detailed Project Proposal
-* Week 7 & 8: Project Architecture and Creation
-* Week 9, 10, & 11: Package and Submit Project
-* Week 12 & 13: Team Reflection and Project Presentation
+* Week 6 & 7: Detailed Project Proposal and Key Requirements
+* Week 8 & 9: Project Architecture and Creation
+* Week 10, 11 & 12: Package and Submit Project
+* Week 13 & 14: Team Reflection and Project Presentation
 
 
 
