@@ -1,6 +1,6 @@
-import pandas
 import kivy
 kivy.require('1.9.0')
+import pandas
 
 from kivy.app import App
 from functools import partial
