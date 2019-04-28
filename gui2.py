@@ -1,6 +1,6 @@
 import kivy
 kivy.require('1.9.0')
-import pandas
+import pandas as pd
 
 from kivy.app import App
 from functools import partial
@@ -33,7 +33,7 @@ class Gui2App(BoxLayout, App):
         instance.text = "Disabled Button!"
 
     def get_data(self):
-        df = pandas.read_excel("clinton_raw.csv")
+        df = pd.read_excel("clinton_raw.csv")
         
     def build(self):
         # mybtn = Button(text="Click me to disable", background_color = (155,0,51,53), pos = (300, 500), size_hint = (.25, .18))
