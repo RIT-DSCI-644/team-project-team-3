@@ -46,7 +46,7 @@ for stopword in file2.read().split():
     stopwords.append(stopword)
 file2.close()
 
-Wordcloud Function
+# Wordcloud Function
 #%%
 #####Setting up wordcloud creation.   Takes a list of text entries that we create later.
 ###Second argument is size of the cloud you want returned.  default is top 20 words

@@ -63,10 +63,10 @@ import numpy as np
 
 
 #%%
-trump=pd.read_csv('trump_sentiment.csv')
-clinton=pd.read_csv('clinton_sentiment.csv')
-congress=pd.read_csv('congress_sentiment.csv')
-all_names=congress['elite'].unique()
+# trump=pd.read_csv('trump_sentiment.csv')
+# clinton=pd.read_csv('clinton_sentiment.csv')
+# congress=pd.read_csv('congress_sentiment.csv')
+# all_names=congress['elite'].unique()
 
 
 #%%
@@ -78,7 +78,7 @@ all_names=congress['elite'].unique()
 
 
 #%%
-congress.head()
+#congress.head()
 
 
 #%%
@@ -99,8 +99,8 @@ def filter_age(dataset, age, side):
 
 
 #%%
-x=filter_age(congress,64, side="d")
-x.head()
+# x=filter_age(congress,64, side="d")
+# x.head()
 
 
 #%%
@@ -125,7 +125,43 @@ def filter_sentiment_number(dataset, number, direction):
 
 
 #%%
-filter_sentiment_number(congress, 10, 'below')
+#filter_sentiment_number(congress, 10, 'below')
+
+def make_cloud(words, num=20):
+    wordcount={}
+    for line in words:
+        for word in line.split():
+            if word in stopwords:
+                pass
+        
+            elif word not in wordcount:
+                wordcount[word] = 1
+            else:
+                wordcount[word] += 1
+    
+    d = collections.Counter(wordcount)
+        
+    for word, count in d.most_common(num):
+        print(word, ": ", count)
+    print("\n")
+
+def grab_text(df):
+    cw =[]
+    df = df["text"]   #Grab just the fourth column
+        
+    for x in df.index:    #Iterate over the valid indicies. Need this since congresslib/con are partials. 
+        temp=str(df[x])
+        temp.strip()                  ##Cleans up the text of junk characters
+        temp=temp.replace('.','')  #stripping out common punctuation so words ending with commas and periods don't count as two different words.
+        temp=temp.replace(',','')
+        temp=temp.replace('“','')
+        temp=temp.replace('”','')
+        temp=temp.replace('&amp','')
+        temp=temp.replace(';','')
+        temp=temp.replace('-',' ')
+        temp=temp.lower()
+        cw.append(temp)
+    return cw
 
 
 #%%
@@ -247,11 +283,11 @@ def get_average_sentiment(dataset):
 
 
 #%%
-get_average_sentiment(filter_persons_tweets(congress, "_Hunter"))
+#get_average_sentiment(filter_persons_tweets(congress, "_Hunter"))
 
 
 #%%
-get_top_retweeted(congress,5)
+#get_top_retweeted(congress,5)
 
 
 #%%
@@ -265,7 +301,7 @@ def get_leaning_score(dataset,name):
 
 
 #%%
-get_leaning_score(congress,"_Hunter")
+#get_leaning_score(congress,"_Hunter")
 
 
 #%%
@@ -286,7 +322,7 @@ def get_most_conservative(dataset,num):
 
 
 #%%
-get_most_conservative(congress,5)
+#get_most_conservative(congress,5)
 
 
 #%%
@@ -307,7 +343,7 @@ def get_most_liberal(dataset,num):
 
 
 #%%
-get_most_liberal(congress,6)
+#get_most_liberal(congress,6)
 
 
 #%%
@@ -333,7 +369,7 @@ def get_sentiment_frequency(dataset,pnn):
 
 
 #%%
-get_sentiment_frequency(trump,'negative')
+#get_sentiment_frequency(trump,'negative')
 
 
 #%%
@@ -355,7 +391,7 @@ def get_most_positive(dataset,num):
 
 
 #%%
-get_most_positive(congress,10)
+#get_most_positive(congress,10)
 
 
 #%%
